@@ -9,10 +9,8 @@ import lombok.Setter;
 @Entity
 @Table(name = "Register")
 public class RegisterEntity {
-    //register entity
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-
     private int id;
     private String password;
     private String usertype;

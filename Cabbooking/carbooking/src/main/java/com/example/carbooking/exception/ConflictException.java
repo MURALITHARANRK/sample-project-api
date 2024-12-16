@@ -1,4 +1,4 @@
-package com.example.carbooking.Exception;
+package com.example.carbooking.exception;
 
 public class ConflictException extends RuntimeException {
     public ConflictException(String message) {

@@ -1,4 +1,5 @@
-package com.example.carbooking.Exception;
+package com.example.carbooking.exception;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
