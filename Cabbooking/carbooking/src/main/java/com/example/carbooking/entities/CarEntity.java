@@ -2,13 +2,13 @@ package com.example.carbooking.entities;
 
 import jakarta.persistence.*;
 @Entity
+@Table(name = "car")
 public class CarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "registrationnumber")
     private String registrationNumber;
-
     private boolean availability;
     private String brand;
     private String model;
