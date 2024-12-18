@@ -16,13 +16,12 @@ public class CarService {
 
     @Autowired
     private CarRepository carRepository;
+    @Autowired
     private BookingRepository bookingRepository;
-
 
     public CarEntity create(CarEntity carEntity) {
         Optional<CarEntity> existingCar = carRepository.findByRegistrationNumber(carEntity.getRegistrationNumber());
         if (existingCar.isPresent()) {
-
             throw new ConflictException("Car with registration number " + carEntity.getRegistrationNumber() + " already exists.");
         }
         return carRepository.save(carEntity);
@@ -35,7 +34,19 @@ public class CarService {
         }
         throw new ConflictException("Car with ID " + id + " not found.");
     }
+
     public List<BookingEntity> getBookingDetails(int carid){
         return bookingRepository.findByCarid(carid);
+
+    }
+    public boolean UpdateCarAvabality(Long carid){
+        Optional<CarEntity> carDetails = carRepository.findById(carid);
+        if (carDetails.isPresent()){
+            CarEntity carEntity = carDetails.get();
+            carEntity.setAvailability(!carEntity.isAvailability());
+            carRepository.save(carEntity);
+            return true;
+        }
+        return false;
     }
 }

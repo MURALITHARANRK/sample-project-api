@@ -1,4 +1,5 @@
 package com.example.carbooking.service;
+
 import com.example.carbooking.entities.BookingEntity;
 import com.example.carbooking.entities.CarEntity;
 import com.example.carbooking.exception.ConflictException;
@@ -33,3 +34,4 @@ public class BookingService {
     }
 
 }
+
