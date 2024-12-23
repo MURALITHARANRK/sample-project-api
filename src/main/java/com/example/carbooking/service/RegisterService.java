@@ -5,5 +5,5 @@ import com.example.carbooking.entities.RegisterEntity;
 
 public interface RegisterService {
     RegisterEntity create(RegisterEntity registerEntity);
-    String login(LoginDto loginDto);
+    RegisterEntity login(LoginDto loginDto);
 }

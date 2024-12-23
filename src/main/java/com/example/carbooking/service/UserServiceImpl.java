@@ -33,10 +33,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(userEntity);
     }
     @Override
-    public UserEntity getById(int id) {
-        Optional<UserEntity> findById = userRepository.findByCustomerid(id);
-        if (findById.isPresent()) {
-            return findById.get();
+    public UserEntity getByName(String name) {
+        Optional<UserEntity> findByName = userRepository.findByName(name);
+        if (findByName.isPresent()) {
+            return findByName.get();
         }
         throw new ConflictException("Add the User details");
     }
@@ -63,6 +63,14 @@ public class UserServiceImpl implements UserService {
         }
 
         return false;
+    }
+    @Override
+    public UserEntity getById(int id) {
+        Optional<UserEntity> findById = userRepository.findByCustomerid(id);
+        if (findById.isPresent()) {
+            return findById.get();
+        }
+        throw new ConflictException("Add the User details");
     }
 
 }

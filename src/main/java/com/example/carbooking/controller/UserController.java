@@ -32,4 +32,10 @@ public class UserController {
             return ResponseEntity.status(404).body("Car not found or update failed.");
         }
     }
+    @GetMapping("/name/{name}")
+    public ResponseEntity<UserEntity> getByName(@PathVariable String name) {
+        UserEntity userEntity = userServiceImpl.getByName(name);
+        return ResponseEntity.ok(userEntity);
+    }
+
 }

@@ -12,6 +12,15 @@ public class CarEntity {
     private boolean availability;
     private String brand;
     private String model;
+    private Long driverid;
+
+    public Long getDriverid() {
+        return driverid;
+    }
+
+    public void setDriverid(Long driverid) {
+        this.driverid = driverid;
+    }
 
     public Long getId() {
         return id;

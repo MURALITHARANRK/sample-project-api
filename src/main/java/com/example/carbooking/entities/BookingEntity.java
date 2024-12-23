@@ -11,23 +11,23 @@ public class BookingEntity {
     private int userid;
     private String starttime;
     private String endtime;
-    private String longitude;
-    private String latitude;
+    private String source;
+    private String destination;
 
     public String getLongitude() {
-        return longitude;
+        return source;
     }
 
     public void setLongitude(String longitude) {
-        this.longitude = longitude;
+        this.source = source;
     }
 
     public String getLatitude() {
-        return latitude;
+        return destination;
     }
 
     public void setLatitude(String latitude) {
-        this.latitude = latitude;
+        this.destination = destination;
     }
 
     public int getBookingid() {

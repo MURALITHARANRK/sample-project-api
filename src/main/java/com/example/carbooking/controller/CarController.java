@@ -7,9 +7,11 @@ import com.example.carbooking.exception.ConflictException;
 import com.example.carbooking.service.CarServiceImpl;
 import com.example.carbooking.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -54,5 +56,14 @@ public class CarController {
     public ResponseEntity<UserEntity> getById(@RequestParam int id) {
         UserEntity userEntity = userServiceImpl.getById(id);
         return ResponseEntity.ok(userEntity);
+    }
+    @GetMapping("/driver/{driverid}")
+    public ResponseEntity<List<CarEntity>> getCarsByOwnerById(@PathVariable Long driverid){
+        List<CarEntity> cars = carServiceImpl.getCarsOwnerByid(driverid);
+        if (cars != null && !cars.isEmpty()) {
+            return ResponseEntity.ok(cars);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ArrayList<>());
+        }
     }
 }

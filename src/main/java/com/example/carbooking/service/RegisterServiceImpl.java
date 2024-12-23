@@ -23,7 +23,7 @@ public class RegisterServiceImpl implements RegisterService {
         return registerRepository.save(registerEntity);
     }
     @Override
-    public String login(LoginDto loginDto) {
+    public RegisterEntity login(LoginDto loginDto) {
         Optional<RegisterEntity> registerEntity = registerRepository.findByUsername(loginDto.getUsername());
         if (registerEntity.isEmpty()) {
             throw new ConflictException("User not found");
@@ -31,7 +31,8 @@ public class RegisterServiceImpl implements RegisterService {
         if (!registerEntity.get().getPassword().equals(loginDto.getPassword())) {
             throw new ConflictException("Invalid password");
         }
-
-        return registerEntity.get().getUsertype();
+        RegisterEntity users = registerEntity.get();
+        return users;
     }
+
 }

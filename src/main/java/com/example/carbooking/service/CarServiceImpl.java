@@ -62,5 +62,9 @@ public class CarServiceImpl implements CarService{
         }
         throw new ConflictException("Add the User details");
     }
+    @Override
+    public List<CarEntity> getCarsOwnerByid(Long driverid){
+        return carRepository.findByDriverid(driverid);
+    }
 
 }
