@@ -18,11 +18,11 @@ public class AdminServiceImpl implements AdminService{
     private RegisterRepository registerRepository;
 
     @Override
-    public List<RegisterEntity> getAllUsers(String Users) {
+    public List<RegisterEntity> getAllUsers() {
         return registerRepository.findByUsertype("user");
     }
     @Override
-    public List<RegisterEntity> getAllDrivers(String Driver){
+    public List<RegisterEntity> getAllDrivers(){
         return registerRepository.findByUsertype("driver");
     }
 }

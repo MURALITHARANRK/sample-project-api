@@ -23,10 +23,10 @@ public class CarController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @PostMapping("/create")
-    public CarEntity createCar(@RequestBody CarEntity carEntity) {
-        return carServiceImpl.create(carEntity);
-    }
+//    @PostMapping("/create")
+//    public CarEntity createCar(@RequestBody CarEntity carEntity) {
+//        return carServiceImpl.create(carEntity);
+//    }
     @GetMapping("/{id}")
     public CarEntity getCarById(@PathVariable Long id) {
         return (CarEntity) carServiceImpl.getById(id);

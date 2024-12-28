@@ -7,6 +7,7 @@ import com.example.carbooking.service.AdminServiceImpl;
 import com.example.carbooking.service.CarService;
 import com.example.carbooking.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,15 +17,18 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private CarServiceImpl carService;
+    @Autowired
     private AdminServiceImpl adminService;
 
-    @GetMapping("user/{user}")
-    public List<RegisterEntity> getAllUsers(@PathVariable String user){
-        return adminService.getAllUsers(user);
+    @GetMapping("/users")
+    public ResponseEntity<List<RegisterEntity>> getAllUsers() {
+        List<RegisterEntity> users = adminService.getAllUsers();
+        return ResponseEntity.ok(users); // Return the list of users in the response
     }
-    @GetMapping("driver/{driver}")
-    public List<RegisterEntity> getallDrivers(@PathVariable String driver){
-        return adminService.getAllUsers(driver);
+    @GetMapping("/driver")
+    public ResponseEntity<List<RegisterEntity>> getAllDrivers() {
+        List<RegisterEntity> users = adminService.getAllDrivers();
+        return ResponseEntity.ok(users);
     }
 
     @PostMapping("/create")
