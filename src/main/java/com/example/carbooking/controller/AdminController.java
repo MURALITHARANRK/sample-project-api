@@ -4,7 +4,6 @@ import com.example.carbooking.entities.CarEntity;
 import com.example.carbooking.entities.RegisterEntity;
 import com.example.carbooking.entities.UserEntity;
 import com.example.carbooking.service.AdminServiceImpl;
-import com.example.carbooking.service.CarService;
 import com.example.carbooking.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +20,9 @@ public class AdminController {
     private AdminServiceImpl adminService;
 
     @GetMapping("/users")
-    public ResponseEntity<List<RegisterEntity>> getAllUsers() {
-        List<RegisterEntity> users = adminService.getAllUsers();
-        return ResponseEntity.ok(users); // Return the list of users in the response
+    public ResponseEntity<List<UserEntity>> getAllUsers() {
+        List<UserEntity> users = adminService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
     @GetMapping("/driver")
     public ResponseEntity<List<RegisterEntity>> getAllDrivers() {

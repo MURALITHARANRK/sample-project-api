@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "Booking")
 public class BookingEntity {
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookingid;
     private Long carid;
     private int userid;
@@ -14,19 +15,19 @@ public class BookingEntity {
     private String source;
     private String destination;
 
-    public String getLongitude() {
+    public String getSource() {
         return source;
     }
 
-    public void setLongitude(String longitude) {
+    public void setSource(String source) {
         this.source = source;
     }
 
-    public String getLatitude() {
+    public String getDestination() {
         return destination;
     }
 
-    public void setLatitude(String latitude) {
+    public void setDestination(String destination) {
         this.destination = destination;
     }
 

@@ -1,6 +1,7 @@
 package com.example.carbooking.service;
 
 import com.example.carbooking.entities.RegisterEntity;
+import com.example.carbooking.entities.UserEntity;
 import com.example.carbooking.repository.CarRepository;
 import com.example.carbooking.repository.RegisterRepository;
 import com.example.carbooking.repository.UserRepository;
@@ -18,8 +19,8 @@ public class AdminServiceImpl implements AdminService{
     private RegisterRepository registerRepository;
 
     @Override
-    public List<RegisterEntity> getAllUsers() {
-        return registerRepository.findByUsertype("user");
+    public List<UserEntity> getAllUsers() {
+        return userRepository.findAll();
     }
     @Override
     public List<RegisterEntity> getAllDrivers(){
