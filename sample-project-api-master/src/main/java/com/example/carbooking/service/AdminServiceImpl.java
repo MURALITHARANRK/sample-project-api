@@ -38,12 +38,12 @@ public class AdminServiceImpl implements AdminService{
         return bookingRepository.findAll();
     }
     @Override
-    public UserEntity getById(int id) {
-        Optional<UserEntity> findById = userRepository.findByCustomerid(id);
-        if (findById.isPresent()) {
-            return findById.get();
+    public List<BookingEntity> getBookingsForUser(int userId) {
+        List<BookingEntity> bookings = bookingRepository.findByUserid(userId);
+        if (bookings.isEmpty()) {
+            throw new ConflictException("No bookings found for the specified user.");
         }
-        throw new ConflictException("Add the User details");
+        return bookings;
     }
 
 
