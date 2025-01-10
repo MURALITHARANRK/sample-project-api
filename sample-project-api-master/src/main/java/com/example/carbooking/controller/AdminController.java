@@ -43,9 +43,15 @@ public class AdminController {
         List<BookingEntity>book=adminService.getAllBooking();
         return ResponseEntity.ok(book);
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<UserEntity> getById(@PathVariable int id) {
-        UserEntity userEntity = userService.getById(id);
-        return ResponseEntity.ok(userEntity);
+    @GetMapping("user/{userId}")
+    public ResponseEntity<List<BookingEntity>> getBookingsForUser(@PathVariable int userId) {
+        try {
+           
+            List<BookingEntity> bookings = adminService.getBookingsForUser(userId);
+            return new ResponseEntity<>(bookings, HttpStatus.OK);
+        } catch (ConflictException e) {
+           
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
     }
