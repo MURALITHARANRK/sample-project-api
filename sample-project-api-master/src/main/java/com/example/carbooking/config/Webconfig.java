@@ -13,7 +13,7 @@ public class Webconfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/") // Allow all endpoints
+                registry.addMapping("/**") // Allow all endpoints
                         .allowedOrigins("http://localhost:4200") // Restrict to Angular app
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed HTTP methods
                         .allowedHeaders("*") // Allow all headers
