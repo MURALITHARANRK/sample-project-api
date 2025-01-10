@@ -11,4 +11,5 @@ public interface AdminService {
     List<RegisterEntity> getAllDrivers();
     List<BookingEntity>getAllBooking();
     UserEntity getById(int id);
+    List<BookingEntity> getBookingsForUser(int userId);
 }
