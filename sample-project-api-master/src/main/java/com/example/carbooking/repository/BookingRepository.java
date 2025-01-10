@@ -11,5 +11,6 @@ public interface BookingRepository extends JpaRepository<BookingEntity,Long> {
 
     List<BookingEntity> findByCarid(Long carid);
     List<BookingEntity>findAll();
+   List<BookingEntity> findByUserid(int userId);
 
 }
