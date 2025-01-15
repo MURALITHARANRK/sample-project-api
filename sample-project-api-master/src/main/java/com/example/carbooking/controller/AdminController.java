@@ -2,6 +2,7 @@ package com.example.carbooking.controller;
 import org.springframework.http.HttpStatus;
 import com.example.carbooking.entities.BookingEntity;
 import com.example.carbooking.entities.CarEntity;
+import com.example.carbooking.exception.ConflictException;
 import com.example.carbooking.entities.RegisterEntity;
 import com.example.carbooking.entities.UserEntity;
 import com.example.carbooking.service.AdminServiceImpl;
