@@ -10,6 +10,6 @@ public interface AdminService {
     List<UserEntity> getAllUsers();
     List<RegisterEntity> getAllDrivers();
     List<BookingEntity>getAllBooking();
-    UserEntity getById(int id);
+    //UserEntity getById(int id);
     List<BookingEntity> getBookingsForUser(int userId);
 }
